@@ -757,7 +757,7 @@ describe("architecture boundaries", () => {
     const indexSource = readFileSync(join(rootDir, "index.ts"), "utf8");
 
     expect(indexSource).toContain("registerOpenVikingToolResultTools");
-    expect(indexSource).not.toMatch(/name:\s*"openviking_tool_result_/");
+    expect(indexSource).not.toMatch(/name:\s*"openviking_tool_result_/);
     expect(indexSource).not.toContain("ToolResultRef");
     expect(indexSource).not.toContain("parseToolResultRef");
   });
@@ -850,7 +850,7 @@ describe("architecture boundaries", () => {
     const indexSource = readFileSync(join(rootDir, "index.ts"), "utf8");
 
     expect(indexSource).toContain("createOpenVikingCommandDefinitions");
-    expect(indexSource).not.toContain("OpenVikingCommands.push");
+    expect(indexSource).not.toContain("openVikingCommands.push");
     expect(indexSource).not.toContain("OpenViking add resource failed");
     expect(indexSource).not.toContain("OpenViking recall trace query failed");
   });
