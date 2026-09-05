@@ -73,7 +73,7 @@ describe("architecture boundaries", () => {
     const violations = collectSourceFiles(join(rootDir, "tests"), [".ts", ".tsx", ".js", ".mjs", ".cjs"])
       .flatMap((file) => {
         const source = readFileSync(file, "utf8");
-        const relativePath = relative(rootDir, file);
+        const relativePath = relative(rootDir, file).replace(/\\/g, "/");
         if (relativePath === "tests/ut/architecture-boundaries.test.ts") {
           return [];
         }
@@ -489,7 +489,7 @@ describe("architecture boundaries", () => {
   it("keeps commit polling client tests on the injected transport seam", () => {
     const clientTestSource = readFileSync(join(rootDir, "tests/ut/client.test.ts"), "utf8");
     const start = clientTestSource.indexOf('it("keeps polling wait=true commit long enough for slow Phase 2 completion"');
-    const end = clientTestSource.indexOf('});\n\ndescribe("OpenVikingClient tenant headers', start);
+    const end = clientTestSource.indexOf('});\ndescribe("OpenVikingClient tenant headers', start);
 
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
