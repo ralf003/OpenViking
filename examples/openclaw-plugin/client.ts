@@ -842,7 +842,7 @@ export class OpenVikingClient {
        * WM v2: number of most-recent messages to keep live after commit.
        * Forwarded as `keep_recent_count` in the POST body. 0 (default)
        * preserves the pre-v2 "archive everything" behavior.
-       */
+      */
       keepRecentCount?: number;
       agentId?: string;
     },
